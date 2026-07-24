@@ -1,0 +1,86 @@
+<svg viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .bg { fill: #0d0d0d; }
+      .scan {
+        fill: none;
+        stroke: #ffffff;
+        stroke-opacity: 0.03;
+      }
+      .glitch-text {
+        font-family: 'Courier New', monospace;
+        font-size: 54px;
+        font-weight: 700;
+        letter-spacing: 4px;
+      }
+      .layer-r { fill: #ff2e5b; mix-blend-mode: screen; }
+      .layer-g { fill: #3dffb0; mix-blend-mode: screen; }
+      .layer-b { fill: #2ea7ff; mix-blend-mode: screen; }
+      .layer-main { fill: #d8d2c4; }
+
+      .layer-r { animation: glitchR 3.2s infinite steps(1); }
+      .layer-b { animation: glitchB 2.6s infinite steps(1); }
+      .layer-g { animation: glitchG 3.9s infinite steps(1); }
+      .noise-bar { animation: flicker 4s infinite; }
+
+      @keyframes glitchR {
+        0%, 92%, 100% { transform: translate(0, 0); opacity: 0.85; }
+        93% { transform: translate(-6px, 1px); opacity: 1; }
+        95% { transform: translate(4px, -2px); opacity: 0.6; }
+        97% { transform: translate(-2px, 0); opacity: 0.9; }
+      }
+      @keyframes glitchB {
+        0%, 90%, 100% { transform: translate(0, 0); opacity: 0.85; }
+        91% { transform: translate(6px, -1px); opacity: 1; }
+        94% { transform: translate(-5px, 2px); opacity: 0.5; }
+        96% { transform: translate(3px, 0); opacity: 0.9; }
+      }
+      @keyframes glitchG {
+        0%, 88%, 100% { transform: translate(0, 0); opacity: 0.8; }
+        89% { transform: translate(3px, 2px); opacity: 1; }
+        92% { transform: translate(-4px, -1px); opacity: 0.6; }
+        95% { transform: translate(2px, 1px); opacity: 0.9; }
+      }
+      @keyframes flicker {
+        0%, 100% { opacity: 0; }
+        50% { opacity: 0; }
+        51% { opacity: 0.4; }
+        52% { opacity: 0; }
+        78% { opacity: 0; }
+        79% { opacity: 0.3; }
+        80% { opacity: 0; }
+      }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="300"/>
+
+  <!-- faint scanlines -->
+  <g class="scan">
+    <path d="M0,20 H1200" stroke-width="1"/>
+    <path d="M0,60 H1200" stroke-width="1"/>
+    <path d="M0,100 H1200" stroke-width="1"/>
+    <path d="M0,140 H1200" stroke-width="1"/>
+    <path d="M0,180 H1200" stroke-width="1"/>
+    <path d="M0,220 H1200" stroke-width="1"/>
+    <path d="M0,260 H1200" stroke-width="1"/>
+  </g>
+
+  <!-- random flicker noise bars -->
+  <rect class="noise-bar" x="0" y="95" width="1200" height="10" fill="#ffffff"/>
+  <rect class="noise-bar" x="0" y="190" width="1200" height="6" fill="#ffffff" style="animation-delay:1.3s"/>
+
+  <!-- glitch layered text -->
+  <g transform="translate(600,120)" text-anchor="middle">
+    <text class="glitch-text layer-r">YOUR_USERNAME</text>
+    <text class="glitch-text layer-b">YOUR_USERNAME</text>
+    <text class="glitch-text layer-g">YOUR_USERNAME</text>
+    <text class="glitch-text layer-main">YOUR_USERNAME</text>
+  </g>
+
+  <g transform="translate(600,175)" text-anchor="middle">
+    <text class="glitch-text layer-r" font-size="22" letter-spacing="2">visual artist / coder / producer</text>
+    <text class="glitch-text layer-b" font-size="22" letter-spacing="2">visual artist / coder / producer</text>
+    <text class="glitch-text layer-main" font-size="22" letter-spacing="2" fill="#8f8a7c">visual artist / coder / producer</text>
+  </g>
+</svg>
