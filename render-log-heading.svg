@@ -11,73 +11,32 @@
         letter-spacing: 2px;
       }
       .bracket { stroke: #00f0ff; stroke-width: 2; fill: none; opacity: 0.85; }
-      .base { fill: #f5faff; }
-      .tint-r { fill: #ff00c8; }
-      .tint-b { fill: #00f0ff; }
+      .layer-r { fill: #ff00c8; mix-blend-mode: screen; }
+      .layer-b { fill: #00f0ff; mix-blend-mode: screen; }
+      .layer-main { fill: #f5faff; }
 
-      .s1 { animation: slice1 2.6s infinite steps(1); }
-      .s2 { animation: slice2 3.1s infinite steps(1); }
-      .s3 { animation: slice3 2.2s infinite steps(1); }
-      .s4 { animation: slice4 3.6s infinite steps(1); }
-      .s5 { animation: slice5 2.9s infinite steps(1); }
+      .layer-r { animation: hGlitchR 3s infinite steps(1); }
+      .layer-b { animation: hGlitchB 2.4s infinite steps(1); }
 
-      @keyframes slice1 {
-        0%, 91%, 100% { transform: translateX(0); }
-        92% { transform: translateX(-14px); }
-        94% { transform: translateX(9px); }
-        96% { transform: translateX(0); }
+      @keyframes hGlitchR {
+        0%, 90%, 100% { transform: translate(0, 0); opacity: 0.85; }
+        91% { transform: translate(-4px, 1px); opacity: 1; }
+        94% { transform: translate(3px, -1px); opacity: 0.6; }
+        97% { transform: translate(-2px, 0); opacity: 0.9; }
       }
-      @keyframes slice2 {
-        0%, 89%, 100% { transform: translateX(0); }
-        90% { transform: translateX(11px); }
-        92% { transform: translateX(-8px); }
-        95% { transform: translateX(0); }
-      }
-      @keyframes slice3 {
-        0%, 93%, 100% { transform: translateX(0); }
-        94% { transform: translateX(-10px); }
-        96% { transform: translateX(6px); }
-        98% { transform: translateX(0); }
-      }
-      @keyframes slice4 {
-        0%, 87%, 100% { transform: translateX(0); }
-        88% { transform: translateX(13px); }
-        90% { transform: translateX(-9px); }
-        93% { transform: translateX(0); }
-      }
-      @keyframes slice5 {
-        0%, 90%, 100% { transform: translateX(0); }
-        91% { transform: translateX(-7px); }
-        93% { transform: translateX(10px); }
-        95% { transform: translateX(0); }
+      @keyframes hGlitchB {
+        0%, 88%, 100% { transform: translate(0, 0); opacity: 0.85; }
+        89% { transform: translate(4px, -1px); opacity: 1; }
+        92% { transform: translate(-3px, 1px); opacity: 0.5; }
+        96% { transform: translate(2px, 0); opacity: 0.9; }
       }
     </style>
-
-    <clipPath id="sl1"><rect x="0" y="18" width="560" height="12"/></clipPath>
-    <clipPath id="sl2"><rect x="0" y="30" width="560" height="12"/></clipPath>
-    <clipPath id="sl3"><rect x="0" y="42" width="560" height="12"/></clipPath>
-    <clipPath id="sl4"><rect x="0" y="54" width="560" height="12"/></clipPath>
-    <clipPath id="sl5"><rect x="0" y="66" width="560" height="14"/></clipPath>
   </defs>
 
-  <!-- base solid text, always visible -->
-  <text class="heading-text base" x="10" y="65">RENDER LOG</text>
-
-  <!-- sliced colored bands that jump horizontally -->
-  <g clip-path="url(#sl1)" class="s1">
-    <text class="heading-text tint-r" x="10" y="65">RENDER LOG</text>
-  </g>
-  <g clip-path="url(#sl2)" class="s2">
-    <text class="heading-text tint-b" x="10" y="65">RENDER LOG</text>
-  </g>
-  <g clip-path="url(#sl3)" class="s3">
-    <text class="heading-text tint-r" x="10" y="65">RENDER LOG</text>
-  </g>
-  <g clip-path="url(#sl4)" class="s4">
-    <text class="heading-text tint-b" x="10" y="65">RENDER LOG</text>
-  </g>
-  <g clip-path="url(#sl5)" class="s5">
-    <text class="heading-text tint-r" x="10" y="65">RENDER LOG</text>
+  <g transform="translate(10,65)">
+    <text class="heading-text layer-r">RENDER LOG</text>
+    <text class="heading-text layer-b">RENDER LOG</text>
+    <text class="heading-text layer-main">RENDER LOG</text>
   </g>
 
   <!-- underline accent -->
