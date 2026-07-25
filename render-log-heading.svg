@@ -1,0 +1,40 @@
+<svg viewBox="0 0 500 90" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .heading-text {
+        font-family: 'Courier New', monospace;
+        font-size: 40px;
+        font-weight: 700;
+        letter-spacing: 5px;
+      }
+      .h-layer-r { fill: #ff00c8; mix-blend-mode: screen; }
+      .h-layer-b { fill: #00f0ff; mix-blend-mode: screen; }
+      .h-layer-main { fill: #f5faff; }
+
+      .h-layer-r { animation: hGlitchR 3s infinite steps(1); }
+      .h-layer-b { animation: hGlitchB 2.4s infinite steps(1); }
+
+      @keyframes hGlitchR {
+        0%, 90%, 100% { transform: translate(0, 0); opacity: 0.85; }
+        91% { transform: translate(-4px, 1px); opacity: 1; }
+        94% { transform: translate(3px, -1px); opacity: 0.6; }
+        97% { transform: translate(-2px, 0); opacity: 0.9; }
+      }
+      @keyframes hGlitchB {
+        0%, 88%, 100% { transform: translate(0, 0); opacity: 0.85; }
+        89% { transform: translate(4px, -1px); opacity: 1; }
+        92% { transform: translate(-3px, 1px); opacity: 0.5; }
+        96% { transform: translate(2px, 0); opacity: 0.9; }
+      }
+    </style>
+  </defs>
+
+  <g transform="translate(10,55)">
+    <text class="heading-text h-layer-r">RENDER LOG</text>
+    <text class="heading-text h-layer-b">RENDER LOG</text>
+    <text class="heading-text h-layer-main">RENDER LOG</text>
+  </g>
+
+  <!-- underline accent -->
+  <rect x="10" y="70" width="330" height="3" fill="#b967ff" opacity="0.8"/>
+</svg>
